@@ -1,7 +1,7 @@
 {
     "name": "Publish to PyPI",
     "description": "Automatic PyPI package publication workflow for the 'spacetelescope' organization",
-    "iconName": "pypi-logo",
+    "iconName": "python",
     "categories": [
         "Python"
     ]
