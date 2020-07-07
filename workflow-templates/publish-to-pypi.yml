@@ -1,0 +1,22 @@
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+      name: Publish release to PyPI (testing)
+      env:
+        TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+      runs-on: ubuntu-latest
+      steps:
+
+          # Check out the commit containing this workflow file.
+          - name: checkout repo
+            uses: actions/checkout@v2
+         
+          - name: custom action
+            uses: spacetelescope/action-publish_to_pypi@1.0.0
+            id: custom_action_0
