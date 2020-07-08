@@ -6,11 +6,11 @@ on:
 
 jobs:
   build:
-      name: Publish release to PyPI (testing)
+      name: Publish release to PyPI
       env:
-        TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
-        TWINE_TEST: ${{ secrets.TWINE_TEST }}
+        PYPI_USERNAME_STSCI_MAINTAINER: ${{ secrets.PYPI_USERNAME_STSCI_MAINTAINER }}
+        PYPI_PASSWORD_STSCI_MAINTAINER: ${{ secrets.PYPI_PASSWORD_STSCI_MAINTAINER }}
+        PYPI_TEST: ${{ secrets.PYPI_TEST }}
       runs-on: ubuntu-latest
       steps:
 
@@ -19,5 +19,5 @@ jobs:
             uses: actions/checkout@v2
          
           - name: custom action
-            uses: spacetelescope/action-publish_to_pypi@1.1.1
+            uses: spacetelescope/action-publish_to_pypi@1.2.0
             id: custom_action_0
