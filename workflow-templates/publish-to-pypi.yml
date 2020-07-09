@@ -10,6 +10,8 @@ jobs:
       env:
         PYPI_USERNAME_STSCI_MAINTAINER: ${{ secrets.PYPI_USERNAME_STSCI_MAINTAINER }}
         PYPI_PASSWORD_STSCI_MAINTAINER: ${{ secrets.PYPI_PASSWORD_STSCI_MAINTAINER }}
+        PYPI_USERNAME_OVERRIDE: ${{ secrets.PYPI_USERNAME_OVERRIDE }}
+        PYPI_PASSWORD_OVERRIDE: ${{ secrets.PYPI_PASSWORD_OVERRIDE }}
         PYPI_TEST: ${{ secrets.PYPI_TEST }}
       runs-on: ubuntu-latest
       steps:
@@ -19,5 +21,5 @@ jobs:
             uses: actions/checkout@v2
          
           - name: custom action
-            uses: spacetelescope/action-publish_to_pypi@1.2.0
+            uses: spacetelescope/action-publish_to_pypi@master
             id: custom_action_0
