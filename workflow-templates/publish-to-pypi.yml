@@ -13,6 +13,7 @@ jobs:
 
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
+    needs: [validate]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -23,12 +24,13 @@ jobs:
 
   build_sdist:
     name: Build source distribution
+    needs: [validate]
     runs-on: ubuntu-latest
     steps:
       - uses: spacetelescope/action-publish_to_pypi/build-sdist@master
 
   upload_pypi:
-    needs: [validate, build_wheels, build_sdist]
+    needs: [build_wheels, build_sdist]
     runs-on: ubuntu-latest
     steps:
       - uses: spacetelescope/action-publish_to_pypi/publish@master
